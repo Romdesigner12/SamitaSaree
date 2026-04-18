@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samita Saree | Digital Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            background-color: #f8f5e4;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .phone-frame {
+            background-color: #fdfbf0;
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding-bottom: 80px; 
+        }
+
+        /* Top Bar */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            background: #fdfbf0;
+            z-index: 100;
+        }
+        .top-logo-small { height: 30px; }
+        .top-brand-name { font-family: 'Playfair Display', serif; font-size: 18px; color: #5d2024; }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: radial-gradient(circle, rgba(93,32,36,0.05) 0%, transparent 70%);
+        }
+        .main-logo-img { width: 100px; margin-bottom: 20px; border-radius: 8px; }
+        .main-title { font-family: 'Playfair Display', serif; font-size: 32px; color: #5d2024; line-height: 1.2; letter-spacing: 2px; }
+        .tagline-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+        .line { height: 1px; width: 40px; background: #c5a059; }
+        .tagline { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #5d2024; font-weight: 600; }
+
+        /* Content Blocks */
+        .section-container { padding: 20px 20px 10px; margin-bottom: 10px; scroll-margin-top: 70px; }
+        .section-header { font-family: 'Playfair Display', serif; font-size: 20px; color: #5d2024; margin-bottom: 15px; border-bottom: 1px solid #e0d9b4; display: inline-block; padding-bottom: 5px; }
+
+        /* Contact Cards */
+        .contact-card { background: #f7f3e1; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .contact-card:hover { transform: translateY(-3px); }
+        .contact-name { font-family: 'Playfair Display', serif; font-size: 18px; color: #5d2024; display: block; }
+        .contact-role { font-size: 10px; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 15px; display: block; }
+        .btn-row { display: flex; gap: 10px; }
+        .btn { flex: 1; padding: 12px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; font-weight: 500; transition: 0.3s; }
+        .btn-call { background: #5d2024; color: #fff; }
+        .btn-wa { background: #7a6021; color: #fff; }
+        .btn:active { transform: scale(0.95); }
+
+        /* Social Grid */
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .social-item { background: #e8e3d3; padding: 20px; border-radius: 12px; text-align: center; text-decoration: none; color: #5d2024; transition: 0.3s; }
+        .social-item:hover { background: #dfd9c1; }
+        .social-item i { font-size: 24px; margin-bottom: 8px; display: block; }
+        .social-item span { font-size: 10px; text-transform: uppercase; font-weight: 600; }
+
+        /* Map Section */
+        .map-box { background: #ccc; height: 180px; border-radius: 15px; margin-bottom: 15px; position: relative; overflow: hidden; background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=21.1712,72.8465&zoom=15&size=400x200&sensor=false'); background-size: cover; display: flex; align-items: center; justify-content: center; }
+        .map-overlay { position: absolute; bottom: 0; width: 100%; height: 60px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); }
+        .view-loc-btn { z-index: 2; background: #7a6021; color: #fff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+
+        /* Details Box */
+        .details-box { background: #f0ede0; border-radius: 12px; padding: 20px; }
+        .detail-item { display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-start; }
+        .detail-item:last-child { margin-bottom: 0; }
+        .detail-item i { color: #7a6021; margin-top: 3px; }
+        .detail-text { font-size: 11px; color: #555; line-height: 1.6; }
+        .gst-label { font-weight: 600; color: #5d2024; margin-right: 5px; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 30px 20px 20px; }
+        .rom-credit { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 10px; color: #999; letter-spacing: 1px; font-weight: 600; }
+        .rom-credit a { color: #25D366; font-size: 16px; text-decoration: none; transition: 0.3s; }
+        .rom-credit a:hover { transform: scale(1.2); }
+        .copyright { font-size: 10px; color: #bbb; margin-top: 15px; }
+
+        /* Bottom Nav */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; max-width: 420px; background: #fdfbf0; display: flex; border-top: 1px solid #eee; height: 75px; z-index: 1000; }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #888; font-size: 9px; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .nav-item.active { color: #5d2024; }
+        .nav-icon-bg { width: 45px; height: 35px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 4px; transition: 0.3s; }
+        .nav-item.active .nav-icon-bg { background: #5d2024; color: #c5a059; }
+        .nav-item i { font-size: 18px; }
+    </style>
+</head>
+<body>
+
+<div class="phone-frame">
+    <div class="top-nav">
+        <img src="logo.png" class="top-logo-small" alt="logo">
+        <span class="top-brand-name">Samita Saree</span>
+        <a href="https://wa.me/?text=Check out Samita Saree Digital Card: 0n1.club/sambhavsilk" target="_blank">
+            <i class="fa-solid fa-share-nodes" style="color: #5d2024;"></i>
+        </a>
+    </div>
+
+    <div class="header-section" id="home">
+        <img src="logo.png" class="main-logo-img" alt="Samita Logo">
+        <h1 class="main-title">SAMITA<br>SAREE</h1>
+        <div class="tagline-container">
+            <div class="line"></div>
+            <p class="tagline">Draped in Tradition</p>
+            <div class="line"></div>
+        </div>
+    </div>
+
+    <div class="section-container" id="staff">
+        <h2 class="section-header">Key Contacts</h2>
+        
+        <div class="contact-card">
+            <span class="contact-name">Monty Jivnani</span>
+            <span class="contact-role">Director</span>
+            <div class="btn-row">
+                <a href="tel:+919925334141" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
+                <a href="https://wa.me/919925334141" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <span class="contact-name">Subhash Jivnani</span>
+            <span class="contact-role">Sales Executive</span>
+            <div class="btn-row">
+                <a href="tel:+919374713735" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
+                <a href="https://wa.me/919374713735" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <span class="contact-name">Shankar Shivnani</span>
+            <span class="contact-role">Manager</span>
+            <div class="btn-row">
+                <a href="tel:+919327342939" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
+                <a href="https://wa.me/919327342939" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container" id="connect">
+        <h2 class="section-header">Connect With Us</h2>
+        <div class="social-grid">
+            <a href="https://www.instagram.com/samitasarees" target="_blank" class="social-item">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/houseoflaxmipati" target="_blank" class="social-item">
+                <i class="fa-brands fa-facebook-f"></i>
+                <span>Facebook</span>
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="section-container" id="location">
+        <h2 class="section-header">Visit the Atelier</h2>
+        <div class="map-box">
+            <a href="https://www.google.com/maps/search/?api=1&query=Surana+101+Sahara+Darwaja+Surat" target="_blank" class="view-loc-btn">
+                <i class="fa-solid fa-location-dot"></i> VIEW LOCATION
+            </a>
+            <div class="map-overlay"></div>
+        </div>
+        
+        <div class="details-box">
+            <div class="detail-item">
+                <i class="fa-solid fa-house-chimney"></i>
+                <p class="detail-text">Shop No 1101 to 1104, 11th Floor, Surana 101, Sahara Darwaja, Ring Road, Surat, Gujarat - 395003.</p>
+            </div>
+            <div class="detail-item" style="border-top: 1px solid #e0d9b4; padding-top: 15px;">
+                <i class="fa-solid fa-circle-check"></i>
+                <p class="detail-text"><span class="gst-label">GSTIN:</span> 24AFJFS8063B1Z0</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="rom-credit">
+            <span>MADE BY ROM DESIGNER</span>
+            <a href="https://wa.me/919376277700" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p class="copyright">© 2026 Samita Saree. All Rights Reserved.</p>
+    </footer>
+
+    <nav class="bottom-nav">
+        <a onclick="scrollToSection('home')" class="nav-item active" id="nav-home">
+            <div class="nav-icon-bg"><i class="fa-solid fa-house"></i></div>
+            HOME
+        </a>
+        <a onclick="scrollToSection('staff')" class="nav-item" id="nav-staff">
+            <div class="nav-icon-bg"><i class="fa-solid fa-id-badge"></i></div>
+            STAFF
+        </a>
+        <a onclick="scrollToSection('location')" class="nav-item" id="nav-location">
+            <div class="nav-icon-bg"><i class="fa-solid fa-location-dot"></i></div>
+            LOCATION
+        </a>
+        <a onclick="scrollToSection('connect')" class="nav-item" id="nav-connect">
+            <div class="nav-icon-bg"><i class="fa-solid fa-address-card"></i></div>
+            CONNECT
+        </a>
+    </nav>
+</div>
+
+<script>
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        
+        // Update active state in bottom nav
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        document.getElementById('nav-' + id).classList.add('active');
+    }
+
+    // Auto-update active nav on scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sections = ['home', 'staff', 'connect', 'location'];
+        
+        sections.forEach(section => {
+            const element = document.getElementById(section);
+            const sectionTop = element.offsetTop;
+            if (pageYOffset >= sectionTop - 100) {
+                current = section;
+            }
+        });
+
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+            if (item.id === 'nav-' + current) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

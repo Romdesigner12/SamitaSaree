@@ -143,35 +143,37 @@
     </div>
 
     <!-- Contacts Section -->
-    <div class="section-container" id="staff">
+    <div class="section-container" id="OWNERS">
         <h2 class="section-header">Key Contacts</h2>
+        
+        <div class="contact-card">
+            <span class="contact-name">Shankar Shivnani</span>
+            <span class="contact-role">Director</span>
+            <div class="btn-row">
+                <a href="tel:+919879169994" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
+                <a href="https://wa.me/+919879169994" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
         
         <div class="contact-card">
             <span class="contact-name">Monty Jivnani</span>
             <span class="contact-role">Director</span>
             <div class="btn-row">
                 <a href="tel:+919925334141" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
-                <a href="https://wa.me/919925334141" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://wa.me/+919925334141" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
 
         <div class="contact-card">
             <span class="contact-name">Subhash Jivnani</span>
-            <span class="contact-role">Sales Executive</span>
+            <span class="contact-role">Director</span>
             <div class="btn-row">
-                <a href="tel:+919374713735" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
-                <a href="https://wa.me/919374713735" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="tel:+919428189023" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
+                <a href="https://wa.me/+919428189023" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
 
-        <div class="contact-card">
-            <span class="contact-name">Shankar Shivnani</span>
-            <span class="contact-role">Manager</span>
-            <div class="btn-row">
-                <a href="tel:+919327342939" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call</a>
-                <a href="https://wa.me/919327342939" target="_blank" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-            </div>
-        </div>
+        
     </div>
 
     <!-- Socials Section -->
@@ -238,9 +240,9 @@
             <div class="nav-icon-bg"><i class="fa-solid fa-house"></i></div>
             HOME
         </a>
-        <a onclick="scrollToSection('staff')" class="nav-item" id="nav-staff">
+        <a onclick="scrollToSection('OWNERS')" class="nav-item" id="nav-staff">
             <div class="nav-icon-bg"><i class="fa-solid fa-id-badge"></i></div>
-            STAFF
+            OWNERS
         </a>
         <a onclick="scrollToSection('location')" class="nav-item" id="nav-location">
             <div class="nav-icon-bg"><i class="fa-solid fa-location-dot"></i></div>
@@ -265,7 +267,7 @@
     // Auto-update active nav on scroll
     window.addEventListener('scroll', () => {
         let current = '';
-        const sections = ['home', 'staff', 'connect', 'location'];
+        const sections = ['home', 'OWNERS', 'connect', 'location'];
         
         sections.forEach(section => {
             const element = document.getElementById(section);
